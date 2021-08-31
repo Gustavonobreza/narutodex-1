@@ -15,6 +15,9 @@ const testController = require('../controllers/test')
 const apiVersion = '/api/v1/'
 
 const routes = express.Router()
+
+routes.get('', (_, res) => { res.redirect(apiVersion) })
+routes.get(apiVersion, (_, res) => { res.redirect(apiVersion + 'character/random') })
 routes.get(apiVersion + 'fandom/character', fandomCharacterController)
 routes.get(apiVersion + 'fandom/character/description', fandomCharacterDescriptionController)
 routes.get(apiVersion + 'fandom/character/jutsus', fandomCharacterJutsuController)
